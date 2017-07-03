@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
 
   mainHeader: {
     fontSize: 28,
+    marginBottom: 25,
     color: '#605a5a',
     textAlign: 'center',
   },
