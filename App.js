@@ -1,19 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import './img/back.jpg';
+import Login from './src/components/Login';
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
-    return (
-       <Image source={require('./img/back.jpg')} >
-          <Text style={styles.tef}>adasd</Text>
-       </Image>
+    return(
+      <Login />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-});
