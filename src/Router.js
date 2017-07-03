@@ -11,7 +11,7 @@ class RouterComponent extends Component{
 	render(){
 		return(
 			<Router>
-				<Scene key="auth">
+				<Scene key="auth" style={{paddingTop: 65}}>
 	 				<Scene key="login" component={Login} title={'Please Login'} />
 	 			</Scene>
 			</Router>

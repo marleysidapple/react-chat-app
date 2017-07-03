@@ -17,11 +17,15 @@ class Login extends Component {
 }
 
 const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: 'Lato',
+  },
+
   container: {
   	backgroundColor: '#f7f4f4',
     flex: 1,
     height: null,
-    width: null
+    width: null,
   },
 
   mainHeader: {
