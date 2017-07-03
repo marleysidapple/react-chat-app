@@ -18,11 +18,13 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: 'Lato',
+    fontFamily: 'Lato'
   },
 
   container: {
   	backgroundColor: '#f7f4f4',
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
     height: null,
     width: null,
@@ -30,16 +32,15 @@ const styles = StyleSheet.create({
 
   mainHeader: {
   	fontSize: 28,
-  	color: 'white',
-  	fontWeight: '600'
+    color: '#605a5a'
+    //textAlign: 'center',
   },
 
   textInputStyle: {
+    margin: 10,
+    padding: 10,
   	height: 40,
-  	margin: 10,
-  	padding: 10,
-  	borderBottomWidth:1, 
-  	borderBottomColor: 'black',
+    borderBottomWidth: 0,
   	color: '#3d2e2e',
   	fontSize: 14
   }
