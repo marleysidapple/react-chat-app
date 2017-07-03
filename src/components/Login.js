@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
-import './../../img/back.jpg';
+import { Text, View, StyleSheet, TextInput } from 'react-native';
+
 
 class Login extends Component {
 
 	render(){
 		return(
-			<Image source={require('./../../img/back.jpg')} style={styles.container}>
-		        <View style={styles.overlay}>
+		        <View style={styles.container}>
 		              <Text style={styles.mainHeader}>Euleo</Text>
+		              <TextInput style={styles.textInputStyle} placeholder={'Enter email'}/>
+		              <TextInput style={styles.textInputStyle} placeholder={'Enter email'}/>
 		         </View>
-		     </Image>
 		);
 	}
 
@@ -18,27 +18,26 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
   container: {
+  	backgroundColor: '#f7f4f4',
     flex: 1,
     height: null,
     width: null
   },
 
-   overlay: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    backgroundColor: 'white',
-    opacity: 0.3,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-
   mainHeader: {
   	fontSize: 28,
-  	color: '#560707',
+  	color: 'white',
   	fontWeight: '600'
+  },
+
+  textInputStyle: {
+  	height: 40,
+  	margin: 10,
+  	padding: 10,
+  	borderBottomWidth:1, 
+  	borderBottomColor: 'black',
+  	color: '#3d2e2e',
+  	fontSize: 14
   }
 });
 
