@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextInput } from 'react-native';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
@@ -12,14 +12,25 @@ class Login extends Component {
                   <Text style={styles.mainHeader}>Euleo</Text>
                   
                       <View style={styles.singleInputWrapper}>
-                      <Icon style={styles.iconWrapper} name="envelope-o" size={18} color="#605a5a" />
-                      <TextInput style={styles.textInputStyle} multiline={true} autoCapitalize={'none'} placeholder={'something@mail.com'}/>
+                        <Icon style={styles.iconWrapper} name="envelope-o" size={18} color="#605a5a" />
+                        <TextInput style={styles.textInputStyle} multiline={true} autoCapitalize={'none'} placeholder={'something@mail.com'}/>
                       </View>
 
                       <View style={styles.singleInputWrapper}>
-                      <Icon style={styles.iconWrapper} name="key" size={18} color="#605a5a" />
-                      <TextInput style={styles.textInputStyle} multiline={true} autoCapitalize={'none'} placeholder={'*********'}/>
+                        <Icon style={styles.iconWrapper} name="key" size={18} color="#605a5a" />
+                        <TextInput style={styles.textInputStyle} multiline={true} autoCapitalize={'none'} placeholder={'*********'}/>
                       </View>
+
+                    
+                        <TouchableOpacity style={styles.buttonWrapper}>
+                            <Text style={styles.buttonText}>Get Started</Text>
+                      </TouchableOpacity>
+
+                      <View style={styles.linkToRegister}>
+                          <Text>{'Dont have an account? Click here to register'}</Text>
+                      </View>
+
+
            </View>
 
 		);
@@ -68,6 +79,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 10,
     paddingLeft: 10
+  },
+
+
+  buttonWrapper: {
+    borderColor: '#b7b5b5',
+    borderWidth: 1,
+    borderRadius: 4,
+    padding: 10,
+    margin: 25,
+    alignSelf: 'stretch',
+
+  },
+
+  buttonText: {
+    alignSelf: 'center',
+    color: '#605a5a'
   }
 
 });
