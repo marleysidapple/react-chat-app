@@ -24,13 +24,15 @@ class Login extends Component {
                     
                         <TouchableOpacity style={styles.buttonWrapper}>
                             <Text style={styles.buttonText}>Get Started</Text>
-                      </TouchableOpacity>
+                        </TouchableOpacity>
 
-                      <View style={styles.linkToRegister}>
-                          <Text>{'Dont have an account? Click here to register'}</Text>
-                      </View>
-
-
+                        
+                          <View style={styles.linkToRegister}>
+                            <Text style={styles.standardText}>{'Dont have an account?'}</Text>
+                            <TouchableOpacity>
+                              <Text style={styles.standardText}>{'Click here to register'}</Text>
+                            </TouchableOpacity>
+                          </View>
            </View>
 
 		);
@@ -95,6 +97,16 @@ const styles = StyleSheet.create({
   buttonText: {
     alignSelf: 'center',
     color: '#605a5a'
+  },
+
+  linkToRegister: {
+    //flex: 1,
+    flexDirection: 'row',
+   
+  },
+
+  standardText: {
+     color: '#605a5a'
   }
 
 });
