@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Actions } from 'react-native-router-flux';
 
 
 class Login extends Component {
@@ -30,7 +31,7 @@ class Login extends Component {
                           <View style={styles.linkToRegister}>
                             <Text style={styles.standardText}>{'Dont have an account?'}</Text>
                             <TouchableOpacity>
-                              <Text style={styles.standardText}>{'Click here to register'}</Text>
+                              <Text style={styles.standardText} onPress={() => Actions.register()}>{'Click here to register'}</Text>
                             </TouchableOpacity>
                           </View>
            </View>
