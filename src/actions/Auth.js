@@ -6,6 +6,7 @@ import {
 	HANDLE_REGISTRATION_FORM
 } from './types';
 
+/*
 export function fullNameChanged(fullname){
 	return(
 		type: FULL_NAME_CHANGED,
@@ -33,6 +34,7 @@ export function retypePasswordChanged(confirm_password){
 		payload: confirm_password
 	);
 }
+*/
 
 export function handleRegistrationForm({prop, value}){
 	return{
