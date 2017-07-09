@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
+import Input from './../common/Input';
+import Button from './../common/Button';
 
 
 class Login extends Component {
@@ -12,21 +14,10 @@ class Login extends Component {
 		       <View style={styles.container}>
                   <Text style={styles.mainHeader}>Euleo</Text>
                   
-                      <View style={styles.singleInputWrapper}>
-                        <Icon style={styles.iconWrapper} name="envelope-o" size={18} color="#605a5a" />
-                        <TextInput style={styles.textInputStyle} multiline={true} autoCapitalize={'none'} placeholder={'something@mail.com'}/>
-                      </View>
-
-                      <View style={styles.singleInputWrapper}>
-                        <Icon style={styles.iconWrapper} name="key" size={18} color="#605a5a" />
-                        <TextInput style={styles.textInputStyle} multiline={true} autoCapitalize={'none'} placeholder={'*********'}/>
-                      </View>
-
-                    
-                        <TouchableOpacity style={styles.buttonWrapper}>
-                            <Text style={styles.buttonText}>Get Started</Text>
-                        </TouchableOpacity>
-
+                      <Input iconName={'envelope-o'} placeholder={'johndoe@mail.com'}/>
+                      <Input iconName={'key'} placeholder={'*********'}/>
+                      <Button buttonTitle={'Login'} />
+                        
                         
                           <View style={styles.linkToRegister}>
                             <Text style={styles.standardText}>{'Dont have an account?'}</Text>
@@ -82,22 +73,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 10,
     paddingLeft: 10
-  },
-
-
-  buttonWrapper: {
-    borderColor: '#b7b5b5',
-    borderWidth: 1,
-    borderRadius: 4,
-    padding: 10,
-    margin: 25,
-    alignSelf: 'stretch',
-
-  },
-
-  buttonText: {
-    alignSelf: 'center',
-    color: '#605a5a'
   },
 
   linkToRegister: {
