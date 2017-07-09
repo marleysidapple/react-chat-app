@@ -12,7 +12,12 @@ class Input extends Component {
 		return(
 			 <View style={styles.singleInputWrapper}>
                 <Icon style={styles.iconWrapper} name={this.props.iconName} size={18} color="#605a5a" />
-                <TextInput style={styles.textInputStyle} multiline={true} autoCapitalize={'none'} placeholder={this.props.placeholder}/>
+                <TextInput style={styles.textInputStyle} 
+                           multiline={true} 
+                           autoCapitalize={'none'}
+                           value={this.props.value}
+                           onChange={this.props.onInputChange} 
+                           placeholder={this.props.placeholder}/>
              </View>
 		);
 	}
