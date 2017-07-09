@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import baseStyle from './../../assets/css/globalcss';
 
 class Register extends Component {
 
@@ -9,7 +10,9 @@ class Register extends Component {
 
 	render(){
 		return(
-			<Text>Welcome to register</Text>
+			<View style={baseStyle.container}>
+				<Text>Welcome to register</Text>
+			</View>
 		);
 	}
 }
