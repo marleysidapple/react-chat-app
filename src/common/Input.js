@@ -16,7 +16,7 @@ class Input extends Component {
                            multiline={true} 
                            autoCapitalize={'none'}
                            value={this.props.value}
-                           onChange={this.props.onInputChange} 
+                           onChangeText={this.props.onInputChange} 
                            placeholder={this.props.placeholder}/>
              </View>
 		);

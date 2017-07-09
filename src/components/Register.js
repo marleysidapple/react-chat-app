@@ -13,9 +13,6 @@ class Register extends Component {
 		super(props);
 	}
 
-	// onRegisterValueChange(prop, val){
-	// 	this.props.handleRegistrationForm(prop, val);
-	// }
 
 	onRegisterPress(){
 		console.log('pressed');
@@ -25,10 +22,32 @@ class Register extends Component {
 		return(
 			<View style={baseStyle.container}>
 				<Text style={styles.mainHeader}>Euleo</Text>
-				<Input placeholder={'your full name'} iconName={'user'} value={this.props.fullname} onInputChange={this.props.handleRegistrationForm({prop: 'fullname', value: this.props.fullname})} />
-				<Input placeholder={'your email'} iconName={'envelope-o'} value={this.props.email} onInputChange={this.props.handleRegistrationForm({prop:'email', value:this.props.email})} />
-				<Input placeholder={'password'} iconName={'key'} value={this.props.password} onInputChange={this.props.handleRegistrationForm({prop:'password', value:this.props.password})}  />
-				<Input placeholder={'Retype Password'} iconName={'key'} value={this.props.confirm_password} onInputChange={this.props.handleRegistrationForm({prop:'confirm_password', value:this.props.confirm_password})} />
+				<Input 
+					placeholder={'your full name'} 
+					iconName={'user'} 
+					value={this.props.fullname} 
+					onInputChange={(value) => this.props.handleRegistrationForm({prop: 'fullname', value: value})} />
+
+
+				<Input placeholder={'your email'} 
+						iconName={'envelope-o'} 
+						value={this.props.email} 
+						onInputChange={(value) => this.props.handleRegistrationForm({prop: 'email', value: value})} />
+
+
+				<Input 
+					placeholder={'password'} 
+					iconName={'key'} 
+					value={this.props.password} 
+					onInputChange={(value) => this.props.handleRegistrationForm({prop: 'password', value: value})} />
+
+
+				<Input 
+					placeholder={'Retype Password'} 
+					iconName={'key'} 
+					value={this.props.confirm_password} 
+					onInputChange={(value) => this.props.handleRegistrationForm({prop: 'confirm_password', value: value})} />
+				
 				<Button buttonTitle={'Register'} onPress={this.onRegisterPress}/>
 			</View>
 		);
