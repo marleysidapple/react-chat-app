@@ -17,7 +17,9 @@ class Input extends Component {
                            autoCapitalize={'none'}
                            value={this.props.value}
                            onChangeText={this.props.onInputChange} 
-                           placeholder={this.props.placeholder}/>
+                           placeholder={this.props.placeholder}
+                           secureTextEntry={true}
+                           />
              </View>
 		);
 	}

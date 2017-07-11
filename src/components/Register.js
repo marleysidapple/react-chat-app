@@ -39,14 +39,16 @@ class Register extends Component {
 					placeholder={'password'} 
 					iconName={'key'} 
 					value={this.props.password} 
-					onInputChange={(value) => this.props.handleRegistrationForm({prop: 'password', value: value})} />
+					onInputChange={(value) => this.props.handleRegistrationForm({prop: 'password', value: value})}
+					 />
 
 
 				<Input 
 					placeholder={'Retype Password'} 
 					iconName={'key'} 
 					value={this.props.confirm_password} 
-					onInputChange={(value) => this.props.handleRegistrationForm({prop: 'confirm_password', value: value})} />
+					onInputChange={(value) => this.props.handleRegistrationForm({prop: 'confirm_password', value: value})} 
+					/>
 				
 				<Button buttonTitle={'Register'} onPress={this.onRegisterPress}/>
 			</View>
