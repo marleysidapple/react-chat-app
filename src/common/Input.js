@@ -13,14 +13,16 @@ class Input extends Component {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 			 <View style={styles.singleInputWrapper}>
                 <Icon style={styles.iconWrapper} name={this.props.iconName} size={18} color="#605a5a" />
-                <TextInput style={styles.textInputStyle} 
-                           multiline={true} 
-                           autoCapitalize={'none'}
-                           value={this.props.value}
-                           onChangeText={this.props.onInputChange} 
-                           placeholder={this.props.placeholder}
-                           secureTextEntry={true}
-                           />
+                
+                <View style={styles.inputWrapper}>
+                  <TextInput style={styles.textInputStyle}
+                             autoCapitalize={'none'}
+                             value={this.props.value}
+                             onChangeText={this.props.onInputChange} 
+                             placeholder={this.props.placeholder}
+                             secureTextEntry={this.props.secureTextEntry || false}
+                             />
+                </View>
              </View>
       </TouchableWithoutFeedback>
 		);
@@ -29,15 +31,19 @@ class Input extends Component {
 }
 
 const styles = StyleSheet.create({
-	textInputStyle: {
-    margin: 10,
-   // padding: 5,
-    height: 35,
+	inputWrapper: {
+   
     borderBottomColor: '#b7b5b5',
     borderBottomWidth: 0.5,
+    flex: 1
+  },
+
+  textInputStyle: {
     color: '#3d2e2e',
     fontSize: 14,
-    flex: 1
+     margin: 10,
+   // padding: 5,
+    height: 35
   },
 
   singleInputWrapper: {
@@ -46,7 +52,7 @@ const styles = StyleSheet.create({
 
   iconWrapper: {
     textAlign: 'center',
-    paddingTop: 10,
+    paddingTop: 20,
     paddingLeft: 10
   },
 });

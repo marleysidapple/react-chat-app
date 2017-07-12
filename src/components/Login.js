@@ -15,7 +15,7 @@ class Login extends Component {
                   <Text style={styles.mainHeader}>Euleo</Text>
                   
                       <Input iconName={'envelope-o'} placeholder={'johndoe@mail.com'}/>
-                      <Input iconName={'key'} placeholder={'*********'}/>
+                      <Input iconName={'key'} placeholder={'*********'} secureTextEntry={true}/>
                       <Button buttonTitle={'Login'} />
                         
                         

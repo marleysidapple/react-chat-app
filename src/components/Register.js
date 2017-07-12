@@ -39,6 +39,7 @@ class Register extends Component {
 					placeholder={'password'} 
 					iconName={'key'} 
 					value={this.props.password} 
+					secureTextEntry={true}
 					onInputChange={(value) => this.props.handleRegistrationForm({prop: 'password', value: value})}
 					 />
 
@@ -47,6 +48,7 @@ class Register extends Component {
 					placeholder={'Retype Password'} 
 					iconName={'key'} 
 					value={this.props.confirm_password} 
+					secureTextEntry={true}
 					onInputChange={(value) => this.props.handleRegistrationForm({prop: 'confirm_password', value: value})} 
 					/>
 				
