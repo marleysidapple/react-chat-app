@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import Login from './components/Login';
 import Register from './components/Register';
+import globalcss from './../assets/css/globalcss';
 
 
 class RouterComponent extends Component{
@@ -12,7 +13,7 @@ class RouterComponent extends Component{
 	render(){
 		return(
 			<Router>
-				<Scene key="auth" style={{paddingTop: 65}}>
+				<Scene key="auth" style={globalcss.sceneWrapper}>
 	 				<Scene key="login" component={Login} title={'Please Login'} initial/>
 	 				<Scene key="register" component={Register} title={'Please Register'}/>
 	 			</Scene>

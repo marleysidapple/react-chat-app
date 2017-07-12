@@ -15,4 +15,9 @@ export default StyleSheet.create({
     width: null,
   },
 
+  sceneWrapper: {
+    paddingTop: 65,
+    backgroundColor: '#f7f4f4', 
+  }
+
 });

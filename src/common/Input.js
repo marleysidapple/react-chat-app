@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextInput, Keyboard } from 'react-native';
+import { Text, View, StyleSheet, TextInput, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Input extends Component {
@@ -10,6 +10,7 @@ class Input extends Component {
 
 	render(){
 		return(
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 			 <View style={styles.singleInputWrapper}>
                 <Icon style={styles.iconWrapper} name={this.props.iconName} size={18} color="#605a5a" />
                 <TextInput style={styles.textInputStyle} 
@@ -21,6 +22,7 @@ class Input extends Component {
                            secureTextEntry={true}
                            />
              </View>
+      </TouchableWithoutFeedback>
 		);
 	}
 

@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import reducers from './src/reducers';
 
+
 const store = applyMiddleware(thunk, promise)(createStore);
 
 export default class App extends Component {
