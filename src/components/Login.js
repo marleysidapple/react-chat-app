@@ -4,14 +4,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
 import Input from './../common/Input';
 import Button from './../common/Button';
-
+import globalcss from './../../assets/css/globalcss';
 
 class Login extends Component {
 
 //<Icon name="envelope-o" size={20} color="#900" />
 	render(){
 		return(
-		       <View style={styles.container}>
+		       <View style={globalcss.container}>
                   <Text style={styles.mainHeader}>Euleo</Text>
                   
                       <Input iconName={'envelope-o'} placeholder={'johndoe@mail.com'}/>
@@ -38,14 +38,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato'
   },
 
-  container: {
-    backgroundColor: '#f7f4f4',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    height: null,
-    width: null,
-  },
 
   mainHeader: {
     fontSize: 28,

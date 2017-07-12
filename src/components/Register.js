@@ -5,7 +5,7 @@ import { handleRegistrationForm } from './../actions/Auth';
 import Input from './../common/Input';
 import Button from './../common/Button';
 import { connect } from 'react-redux';
-
+import globalcss from './../../assets/css/globalcss';
 
 class Register extends Component {
 
@@ -20,7 +20,7 @@ class Register extends Component {
 
 	render(){
 		return(
-			<View style={baseStyle.container}>
+			<View style={globalcss.container}>
 				<Text style={styles.mainHeader}>Euleo</Text>
 				<Input 
 					placeholder={'your full name'} 
