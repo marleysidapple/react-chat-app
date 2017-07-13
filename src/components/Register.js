@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, ScrollView, StyleSheet } from 'react-native';
+import { Text, ScrollView, StyleSheet, Alert } from 'react-native';
 import baseStyle from './../../assets/css/globalcss';
 import { handleRegistrationForm } from './../actions/Auth';
 import Input from './../common/Input';
@@ -15,7 +15,26 @@ class Register extends Component{
 
 
 	onRegisterPress(){
-		console.log(this.props.fullname);
+		if (this.props.fullname == "" || this.props.email == "" || this.props.password == "" || this.props.confirm_password == ""){
+			Alert.alert(
+				'Value missing',
+				'All fields are mandatory'
+			);
+		} else {
+			if (this.props.password === this.props.confirm_password){
+				//fire action
+			} else {
+				Alert.alert(
+					'Password error',
+					'Password and confirm password should be same'
+				);
+			}
+		}
+	}
+
+
+	validateRegisterForm(){
+		
 	}
 
 	render(){
