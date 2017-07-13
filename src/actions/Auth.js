@@ -4,7 +4,9 @@ import {
 	PASSWORD_CHANGED,
 	RETYPE_PASSWORD_CHANGED,
 	HANDLE_REGISTRATION_FORM,
-	USER_CREATE_SUCCESS
+	CREATE_USER,
+	USER_CREATE_SUCCESS,
+	USER_CREATE_FAILED,
 } from './types';
 import { API_BASE_URL } from 'react-native-dotenv';
 import { Alert } from 'react-native';
@@ -20,14 +22,20 @@ export function handleRegistrationForm({prop, value}){
 
 export function createUser(userdata){
 	return(dispatch) => {
+		//for sake of showing spinner;
+		dispatch({type: CREATE_USER});
+
 		axios.post(API_BASE_URL + '/auth/register', userdata).then(user => {
-			if(user.status == '200'){
 				dispatch({
 					type: USER_CREATE_SUCCESS,
-					payload: 'User created successfully'
+					payload: user
 				});
-			}
-
+		}).catch(err => {
+			//console.log(error.response);
+			dispatch({
+				type: USER_CREATE_FAILED,
+				payload: err.response
+			});
 		});
 	}
 }

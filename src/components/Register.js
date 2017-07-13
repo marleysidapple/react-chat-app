@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, ScrollView, StyleSheet, Alert } from 'react-native';
+import { Text, ScrollView, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import baseStyle from './../../assets/css/globalcss';
 import { handleRegistrationForm, createUser } from './../actions/Auth';
 import Input from './../common/Input';
@@ -11,6 +11,16 @@ class Register extends Component{
 
 	constructor(props){
 		super(props);
+	}
+
+
+	componentWillReceiveProps(nextProps){
+		if (nextProps.err != null){
+			Alert.alert(
+				'Error',
+				nextProps.err
+			);
+		}
 	}
 
 
@@ -35,6 +45,14 @@ class Register extends Component{
 			password: this.props.password
 		}
 		this.props.createUser(user);
+	}
+
+
+	showEitherButtonOrSpinner(){
+		if (this.props.loading){
+			return <ActivityIndicator size={'small'}/>;
+		} 
+		return <Button buttonTitle={'Register'} onPressedAction={this.onRegisterPress.bind(this)}/>;
 	}
 
 
@@ -71,8 +89,8 @@ class Register extends Component{
 						secureTextEntry={true}
 						onInputChange={(value) => this.props.handleRegistrationForm({prop: 'confirm_password', value: value})} 
 						/>
-					
-					<Button buttonTitle={'Register'} onPressedAction={this.onRegisterPress.bind(this)}/>
+						
+					{this.showEitherButtonOrSpinner()}
 			</ScrollView>
 		);
 	}
@@ -89,11 +107,14 @@ const styles = StyleSheet.create({
 
 
 function mapStateToProps(state){
+	
 	return {
 		fullname: state.auth.fullname,
 		email: state.auth.email,
 		password: state.auth.password,
-		confirm_password: state.auth.confirm_password
+		confirm_password: state.auth.confirm_password,
+		loading: state.auth.loading,
+		err: state.auth.err
 	};
 }
 
