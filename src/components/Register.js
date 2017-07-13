@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Text, ScrollView, StyleSheet, Alert } from 'react-native';
 import baseStyle from './../../assets/css/globalcss';
-import { handleRegistrationForm } from './../actions/Auth';
+import { handleRegistrationForm, createUser } from './../actions/Auth';
 import Input from './../common/Input';
 import Button from './../common/Button';
 import { connect } from 'react-redux';
@@ -21,21 +21,22 @@ class Register extends Component{
 				'All fields are mandatory'
 			);
 		} else {
-			if (this.props.password === this.props.confirm_password){
-				//fire action
-			} else {
+			if (this.props.password != this.props.confirm_password){
 				Alert.alert(
 					'Password error',
 					'Password and confirm password should be same'
 				);
 			}
 		}
+
+		const user = {
+			fullname: this.props.fullname,
+			email: this.props.email,
+			password: this.props.password
+		}
+		this.props.createUser(user);
 	}
 
-
-	validateRegisterForm(){
-		
-	}
 
 	render(){
 		return(
@@ -96,4 +97,4 @@ function mapStateToProps(state){
 	};
 }
 
-export default connect(mapStateToProps, { handleRegistrationForm })(Register);
+export default connect(mapStateToProps, { handleRegistrationForm, createUser })(Register);
