@@ -11,7 +11,11 @@ import reducers from './src/reducers';
 
 const store = applyMiddleware(thunk, promise)(createStore);
 
-export default class App extends Component {
+class App extends Component {
+	constructor(props){
+		super(props);
+	}
+
   render() {
     return(
     	<Provider store={store(reducers)}>
@@ -20,4 +24,6 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
 

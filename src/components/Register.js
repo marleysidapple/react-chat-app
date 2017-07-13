@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Text, ScrollView, StyleSheet } from 'react-native';
 import baseStyle from './../../assets/css/globalcss';
 import { handleRegistrationForm } from './../actions/Auth';
@@ -7,7 +7,7 @@ import Button from './../common/Button';
 import { connect } from 'react-redux';
 import globalcss from './../../assets/css/globalcss';
 
-class Register extends Component {
+class Register extends Component{
 
 	constructor(props){
 		super(props);
@@ -15,7 +15,7 @@ class Register extends Component {
 
 
 	onRegisterPress(){
-		console.log('pressed');
+		console.log(this.props.fullname);
 	}
 
 	render(){
@@ -52,7 +52,7 @@ class Register extends Component {
 						onInputChange={(value) => this.props.handleRegistrationForm({prop: 'confirm_password', value: value})} 
 						/>
 					
-					<Button buttonTitle={'Register'} onPress={this.onRegisterPress}/>
+					<Button buttonTitle={'Register'} onPressedAction={this.onRegisterPress.bind(this)}/>
 			</ScrollView>
 		);
 	}
@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
 
 
 function mapStateToProps(state){
-	console.log(state);
 	return {
 		fullname: state.auth.fullname,
 		email: state.auth.email,
