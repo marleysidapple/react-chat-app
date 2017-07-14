@@ -30,21 +30,19 @@ class Register extends Component{
 				'Value missing',
 				'All fields are mandatory'
 			);
-		} else {
-			if (this.props.password != this.props.confirm_password){
+		} else if(this.props.password != this.props.confirm_password){
 				Alert.alert(
 					'Password error',
 					'Password and confirm password should be same'
 				);
+		} else{
+			const user = {
+				fullname: this.props.fullname,
+				email: this.props.email,
+				password: this.props.password
 			}
-		}
-
-		const user = {
-			fullname: this.props.fullname,
-			email: this.props.email,
-			password: this.props.password
-		}
-		this.props.createUser(user);
+			this.props.createUser(user);
+			}
 	}
 
 

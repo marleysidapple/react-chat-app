@@ -31,7 +31,7 @@ export function createUser(userdata){
 					type: USER_CREATE_SUCCESS,
 					payload: user
 				});
-		//Actions.login({type: 'reset'});
+		Actions.login();
 		}).catch(err => {
 			//console.log(error.response);
 			dispatch({
