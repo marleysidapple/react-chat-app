@@ -107,12 +107,12 @@ const styles = StyleSheet.create({
 function mapStateToProps(state){
 	
 	return {
-		fullname: state.auth.fullname,
-		email: state.auth.email,
-		password: state.auth.password,
-		confirm_password: state.auth.confirm_password,
-		loading: state.auth.loading,
-		err: state.auth.err
+		fullname: state.auth_register.fullname,
+		email: state.auth_register.email,
+		password: state.auth_register.password,
+		confirm_password: state.auth_register.confirm_password,
+		loading: state.auth_register.loading,
+		err: state.auth_register.err
 	};
 }
 

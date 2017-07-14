@@ -1,19 +1,13 @@
 import {
-	FULL_NAME_CHANGED,
-	EMAIL_CHANGED,
-	PASSWORD_CHANGED,
-	RETYPE_PASSWORD_CHANGED,
-	HANDLE_REGISTRATION_FORM,
-	CREATE_USER,
-	USER_CREATE_SUCCESS,
-	USER_CREATE_FAILED
+	HANDLE_LOGIN_FORM,
+	LOGIN_USER,
+	USER_LOGIN_SUCCESS,
+	USER_LOGIN_FAILED
 } from './../actions/types';
 
 const INITIAL_STATE = {
-	fullname: '',
 	email: '',
 	password: '',
-	confirm_password: '',
 	err: null,
 	loading: false,
 	success: false
@@ -22,16 +16,16 @@ const INITIAL_STATE = {
 
 export default function(state=INITIAL_STATE, action){
 	switch(action.type){
-		case HANDLE_REGISTRATION_FORM:
+		case HANDLE_LOGIN_FORM:
 			return {...state, [action.payload.prop]: action.payload.value, loading: false, err: null, success: false};
 
-		case CREATE_USER:
+		case LOGIN_USER:
 			return { ...state, loading: true, err: null, success: false};
 
-		case USER_CREATE_SUCCESS:
+		case USER_LOGIN_SUCCESS:
 			return { ...state, loading: false, err: null, success: true};
 
-		case USER_CREATE_FAILED:
+		case USER_LOGIN_FAILED:
 			return { ...state, loading: false, err: action.payload.data.message, success: false };
 		default:
 			return INITIAL_STATE;

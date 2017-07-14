@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { handleLoginForm } from './../actions/Login';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
@@ -9,15 +10,35 @@ import globalcss from './../../assets/css/globalcss';
 
 class Login extends Component {
 
-//<Icon name="envelope-o" size={20} color="#900" />
+  onLoginPress(){
+    if (this.props.email == "" || this.props.password == ""){
+          Alert.alert(
+            'Missing value',
+            'All fields are required'
+          );
+    }
+  }
+
+
 	render(){
 		return(
 		       <View style={globalcss.container}>
                   <Text style={styles.mainHeader}>Euleo</Text>
                   
-                      <Input iconName={'envelope-o'} placeholder={'johndoe@mail.com'}/>
-                      <Input iconName={'key'} placeholder={'*********'} secureTextEntry={true}/>
-                      <Button buttonTitle={'Login'} />
+                      <Input 
+                        iconName={'envelope-o'} 
+                        placeholder={'Enter your email'}
+                        value={this.props.email}
+                        onInputChange={(value) => this.props.handleLoginForm({prop:'email', value: value})} />
+
+                      <Input iconName={'key'} 
+                             placeholder={'Enter your password'} 
+                             value={this.props.password}
+                             onInputChange={(value) => this.props.handleLoginForm({prop: 'password', value: value})}
+                             secureTextEntry={true} />
+
+
+                      <Button buttonTitle={'Login'} onPressedAction={this.onLoginPress.bind(this)}/>
                         
                         
                           <View style={styles.linkToRegister}>
@@ -80,5 +101,13 @@ const styles = StyleSheet.create({
 
 });
 
+function mapStateToProps(state){
+  console.log(state.auth_login);
+  return {
+    email: state.auth_login.email,
+    password: state.auth_login.password
+  };
+}
 
-export default Login;
+
+export default connect(mapStateToProps, { handleLoginForm })(Login);
