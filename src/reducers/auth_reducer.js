@@ -22,7 +22,7 @@ const INITIAL_STATE = {
 export default function(state=INITIAL_STATE, action){
 	switch(action.type){
 		case HANDLE_REGISTRATION_FORM:
-			return {...state, [action.payload.prop]: action.payload.value};
+			return {...state, [action.payload.prop]: action.payload.value, loading: false};
 
 		case CREATE_USER:
 			return { ...state, loading: true, err: null};

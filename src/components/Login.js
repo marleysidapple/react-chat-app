@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 import Input from './../common/Input';
 import Button from './../common/Button';
 import globalcss from './../../assets/css/globalcss';

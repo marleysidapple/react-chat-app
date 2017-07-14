@@ -11,6 +11,7 @@ import {
 import { API_BASE_URL } from 'react-native-dotenv';
 import { Alert } from 'react-native';
 import axios from 'axios';
+import { Actions } from 'react-native-router-flux';
 
 
 export function handleRegistrationForm({prop, value}){
@@ -30,6 +31,7 @@ export function createUser(userdata){
 					type: USER_CREATE_SUCCESS,
 					payload: user
 				});
+		//Actions.login({type: 'reset'});
 		}).catch(err => {
 			//console.log(error.response);
 			dispatch({
