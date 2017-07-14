@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
-import { handleLoginForm } from './../actions/Login';
+import { handleLoginForm, validateLoginCredential } from './../actions/Login';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
@@ -16,6 +16,12 @@ class Login extends Component {
             'Missing value',
             'All fields are required'
           );
+    } else {
+      const user = {
+        email: this.props.email,
+        password: this.props.password
+      }
+      this.props.validateLoginCredential(user);
     }
   }
 
@@ -102,7 +108,6 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state){
-  console.log(state.auth_login);
   return {
     email: state.auth_login.email,
     password: state.auth_login.password
@@ -110,4 +115,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps, { handleLoginForm })(Login);
+export default connect(mapStateToProps, { handleLoginForm, validateLoginCredential })(Login);
