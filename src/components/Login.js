@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import { handleLoginForm, validateLoginCredential } from './../actions/Login';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Actions } from 'react-native-router-flux';
@@ -14,11 +14,16 @@ class Login extends Component {
       super(props);
     }
 
-
-
- componentWillReceiveProps(nextProps){
-    console.log(nextProps); 
- }
+   componentWillReceiveProps(nextProps){
+     if (nextProps.err != null){
+        Alert.alert(
+          'Error',
+          nextProps.err
+        );
+      } else if(nextProps.success) {
+        Actions.dashboard({type: 'reset'});
+      }
+   }
 
   onLoginPress(){
     if (this.props.email == "" || this.props.password == ""){
@@ -62,11 +67,11 @@ class Login extends Component {
                              secureTextEntry={true} />
 
 
-                      <Button buttonTitle={'Login'} onPressedAction={this.onLoginPress.bind(this)}/>
+                      {this.showEitherButtonOrSpinner()}
                         
                         
                           <View style={styles.linkToRegister}>
-                            <Text style={styles.standardText}>{'Dont have an account?'}</Text>
+                            <Text style={styles.standardText}>{'Dont have an account? '}</Text>
                             <TouchableOpacity>
                               <Text style={styles.standardText} onPress={() => Actions.register()}>{'Click here to register'}</Text>
                             </TouchableOpacity>
@@ -120,15 +125,20 @@ const styles = StyleSheet.create({
   },
 
   standardText: {
-     color: '#605a5a'
+     color: '#605a5a',
+     fontSize: 16
   }
 
 });
 
 function mapStateToProps(state){
   return {
-    email: state.auth_login.email,
-    password: state.auth_login.password
+      email: state.auth_login.email,
+      password: state.auth_login.password,
+      success: state.auth_login.success,
+      token: state.auth_login.token,
+      loading: state.auth_login.loading,
+      err: state.auth_login.err
   };
 }
 

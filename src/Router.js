@@ -18,16 +18,19 @@ class RouterComponent extends Component{
 				<Scene key="auth">
 	 				<Scene key="login" component={Login} title={'Please Login'} initial/>
 	 				<Scene key="register" component={Register} title={'Please Register'}/>
+	 				<Scene key="dashboard" component={Dashboard} title={'Some description'} />		
 	 			</Scene>
 
-	 			<Scene key="protected">
-	 				<Scene key="dashboard" component={Dashboard} title={'Some description'} />	
-	 			</Scene>
+	 			
 
 			</Router>
 		);
 	}
 
 }
+
+// <Scene key="protected">
+	 			// 	<Scene key="dashboard" component={Dashboard} title={'Some description'} />	
+	 			// </Scene>
 
 export default RouterComponent;

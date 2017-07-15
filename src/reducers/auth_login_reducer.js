@@ -5,6 +5,7 @@ import {
 	USER_LOGIN_FAILED
 } from './../actions/types';
 
+//
 const INITIAL_STATE = {
 	email: '',
 	password: '',
@@ -27,7 +28,7 @@ export default function(state=INITIAL_STATE, action){
 			return { ...state, loading: false, err: null, success: true, token: action.payload.success};
 
 		case USER_LOGIN_FAILED:
-			return { ...state, loading: false, err: action.payload.data.error, success: false, token: null};
+			return { ...state, loading: false, password: '', err: action.payload.data.error, success: false, token: null};
 		default:
 			return INITIAL_STATE;
 	}
