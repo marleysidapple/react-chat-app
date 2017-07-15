@@ -10,6 +10,16 @@ import globalcss from './../../assets/css/globalcss';
 
 class Login extends Component {
 
+    constructor(props){
+      super(props);
+    }
+
+
+
+ componentWillReceiveProps(nextProps){
+    console.log(nextProps); 
+ }
+
   onLoginPress(){
     if (this.props.email == "" || this.props.password == ""){
           Alert.alert(
@@ -23,6 +33,14 @@ class Login extends Component {
       }
       this.props.validateLoginCredential(user);
     }
+  }
+
+
+  showEitherButtonOrSpinner(){
+    if (this.props.loading){
+      return <ActivityIndicator size={'small'}/>;
+    } 
+    return <Button buttonTitle={'Login'} onPressedAction={this.onLoginPress.bind(this)}/>;
   }
 
 

@@ -24,14 +24,12 @@ export function validateLoginCredential(userData){
 		dispatch({type: LOGIN_USER});
 
 		axios.post(API_BASE_URL + '/auth/login', userData).then(user => {
-			console.log(user);
 				dispatch({
 					type: USER_LOGIN_SUCCESS,
-					payload: user
+					payload: user.data
 				});
 		Actions.dashboard({type: 'reset'});
 		}).catch(err => {
-			console.log(err.response);
 			dispatch({
 				type: USER_LOGIN_FAILED,
 				payload: err.response
