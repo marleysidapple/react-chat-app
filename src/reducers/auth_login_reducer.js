@@ -5,7 +5,7 @@ import {
 	USER_LOGIN_FAILED
 } from './../actions/types';
 
-//
+
 const INITIAL_STATE = {
 	email: '',
 	password: '',
