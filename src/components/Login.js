@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 
   standardText: {
      color: '#605a5a',
-     fontSize: 16
+     fontSize: 15
   }
 
 });
