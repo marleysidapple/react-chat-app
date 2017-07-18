@@ -17,8 +17,6 @@ class Dashbaord extends Component {
 
 	render(){
 		return(
-
-
 			<View style={styles.container}>
 				<View style={styles.chatDetailWrapper}>
 					<ListView 

@@ -18,6 +18,10 @@ export default StyleSheet.create({
   sceneWrapper: {
     paddingTop: 65,
     backgroundColor: '#f7f4f4', 
+  },
+
+  navStyle: {
+   
   }
 
 });
