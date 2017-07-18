@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, ListView } from 'react-native';
 import { Scene } from 'react-native-router-flux';
 import globalcss from './../../assets/css/globalcss';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Drawer from 'react-native-drawer'
 
 class Dashbaord extends Component {
 
@@ -97,13 +98,9 @@ const styles = StyleSheet.create({
 
   singleCellContainer:{
   	flex: 1,
-  	padding: 20,
+  	padding: 25,
   	borderBottomWidth: .4,
   	borderColor: '#b7b7b7',
-  //	borderWidth: .3,
-  	//borderBottomWidth : 1,
-   // borderColor: '#b7b7b7',
-    //borderTopWidth: 0,
     opacity: 1,
   }
 
