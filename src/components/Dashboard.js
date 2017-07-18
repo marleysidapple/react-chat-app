@@ -24,22 +24,22 @@ class Dashbaord extends Component {
 				<View style={styles.footerStyle}>
 					<View style={styles.tabView}>
 						<Icon style={styles.iconStyle} name={'commenting-o'} size={22} color="#605a5a" />
-						<Text>Chats</Text>
+						<Text style={styles.tabTextStyle}>Chats</Text>
 					</View>
 
-					<View>
+					<View style={styles.tabView}>
 						<Icon name={'users'} size={22} color="#605a5a" />
-						<Text>Friends</Text>
+						<Text style={styles.tabTextStyle}>Friends</Text>
 					</View>
 
-					<View>
+					<View style={styles.tabView}>
 						<Icon name={'bars'} size={22} color="#605a5a" />
-						<Text>Profile</Text>
+						<Text style={styles.tabTextStyle}>Profile</Text>
 					</View>
 
-					<View>
+					<View style={styles.tabView}>
 						<Icon name={'sliders'} size={22} color="#605a5a" />
-						<Text>More</Text>
+						<Text style={styles.tabTextStyle}>More</Text>
 					</View>
 					
 
@@ -62,15 +62,23 @@ const styles = StyleSheet.create({
   	flexDirection: 'row',
   	height: 55,
   	backgroundColor: '#d1cfcf',
-  	padding: 15,
-  	justifyContent: 'space-between',
+  	//padding: 15,
+  	//justifyContent: 'space-between',
   	borderTopWidth : .5,
     borderColor    : '#b7b7b7',
     opacity: 1
   },
 
   tabView: {
-  	//alignSelf: 'center'
+  	//justifyContent: 'space-between',  
+  	alignItems: 'center',
+  	padding: 8,
+  	flex: 1,
+  },
+
+  tabTextStyle: {
+  	alignSelf: 'center',
+  	color: '#666464'
   }
 
 
