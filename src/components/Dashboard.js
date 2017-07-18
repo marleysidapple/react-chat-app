@@ -23,7 +23,7 @@ class Dashbaord extends Component {
 
 				<View style={styles.footerStyle}>
 					<View style={styles.tabView}>
-						<Icon style={styles.iconStyle} name={'commenting-o'} size={22} color="#605a5a" />
+						<Icon style={styles.iconStyle} name={'comments'} size={22} color="#1a457c" />
 						<Text style={styles.tabTextStyle}>Chats</Text>
 					</View>
 
@@ -33,7 +33,7 @@ class Dashbaord extends Component {
 					</View>
 
 					<View style={styles.tabView}>
-						<Icon name={'bars'} size={22} color="#605a5a" />
+						<Icon name={'drivers-license-o'} size={22} color="#605a5a" />
 						<Text style={styles.tabTextStyle}>Profile</Text>
 					</View>
 
