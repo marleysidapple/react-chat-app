@@ -38,7 +38,7 @@ class Dashbaord extends Component {
 					</View>
 
 					<View style={styles.tabView}>
-						<Icon name={'sliders'} size={22} color="#605a5a" />
+						<Icon name={'podcast'} size={22} color="#605a5a" />
 						<Text style={styles.tabTextStyle}>More</Text>
 					</View>
 					
