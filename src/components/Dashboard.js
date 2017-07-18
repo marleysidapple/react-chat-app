@@ -22,24 +22,24 @@ class Dashbaord extends Component {
 
 
 				<View style={styles.footerStyle}>
-					<View>
-						<Icon name={'commenting-o'} size={22} color="#605a5a" />
+					<View style={styles.tabView}>
+						<Icon style={styles.iconStyle} name={'commenting-o'} size={22} color="#605a5a" />
 						<Text>Chats</Text>
 					</View>
 
 					<View>
-						<Icon name={'commenting-o'} size={22} color="#605a5a" />
-						<Text>Chats</Text>
+						<Icon name={'users'} size={22} color="#605a5a" />
+						<Text>Friends</Text>
 					</View>
 
 					<View>
-						<Icon name={'commenting-o'} size={22} color="#605a5a" />
-						<Text>Chats</Text>
+						<Icon name={'bars'} size={22} color="#605a5a" />
+						<Text>Profile</Text>
 					</View>
 
 					<View>
-						<Icon name={'commenting-o'} size={22} color="#605a5a" />
-						<Text>Chats</Text>
+						<Icon name={'sliders'} size={22} color="#605a5a" />
+						<Text>More</Text>
 					</View>
 					
 
@@ -62,11 +62,15 @@ const styles = StyleSheet.create({
   	flexDirection: 'row',
   	height: 55,
   	backgroundColor: '#d1cfcf',
-  	padding: 10,
+  	padding: 15,
   	justifyContent: 'space-between',
   	borderTopWidth : .5,
     borderColor    : '#b7b7b7',
     opacity: 1
+  },
+
+  tabView: {
+  	//alignSelf: 'center'
   }
 
 
