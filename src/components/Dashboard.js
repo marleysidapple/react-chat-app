@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { Scene } from 'react-native-router-flux';
+import globalcss from './../../assets/css/globalcss';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Dashbaord extends Component {
 
@@ -9,10 +12,64 @@ class Dashbaord extends Component {
 
 	render(){
 		return(
-			<Text>This is Dashbaord</Text>
+
+
+			<View style={styles.container}>
+				<View>
+					<Text>View One</Text>
+				</View>
+
+
+
+				<View style={styles.footerStyle}>
+					<View>
+						<Icon name={'commenting-o'} size={22} color="#605a5a" />
+						<Text>Chats</Text>
+					</View>
+
+					<View>
+						<Icon name={'commenting-o'} size={22} color="#605a5a" />
+						<Text>Chats</Text>
+					</View>
+
+					<View>
+						<Icon name={'commenting-o'} size={22} color="#605a5a" />
+						<Text>Chats</Text>
+					</View>
+
+					<View>
+						<Icon name={'commenting-o'} size={22} color="#605a5a" />
+						<Text>Chats</Text>
+					</View>
+					
+
+				</View>
+			</View>
+    
 		);
 	}
 
 }
+
+const styles = StyleSheet.create({
+	container: {
+	    backgroundColor: '#f7f4f4',
+	    justifyContent: 'space-between',
+	    flex: 1,
+  },
+
+  footerStyle: {
+  	flexDirection: 'row',
+  	height: 55,
+  	backgroundColor: '#d1cfcf',
+  	padding: 10,
+  	justifyContent: 'space-between',
+  	borderTopWidth : .5,
+    borderColor    : '#b7b7b7',
+    opacity: 1
+  }
+
+
+});
 
 export default Dashbaord; 
