@@ -25,7 +25,9 @@ class Dashbaord extends Component {
 				        dataSource={this.state.dataSource}
 				        renderRow={
 				        		(rowData) => 
-				        		<Text style={styles.singleCellContainer}>{rowData}</Text>
+				        		<View style={styles.singleCellContainer}>
+				        			<Text>{rowData}</Text>
+				        		</View>
 				    	}/>
 				</View>
 
@@ -70,8 +72,6 @@ const styles = StyleSheet.create({
   	flexDirection: 'row',
   	height: 55,
   	backgroundColor: '#d1cfcf',
-  	//padding: 15,
-  	//justifyContent: 'space-between',
   	borderTopWidth : .5,
     borderColor    : '#b7b7b7',
     opacity: 1,     
@@ -96,10 +96,14 @@ const styles = StyleSheet.create({
 
 
   singleCellContainer:{
-  	margin: 5,
-  	padding: 5,
-  	borderBottomWidth : .5,
-    borderColor: '#b7b7b7',
+  	flex: 1,
+  	padding: 20,
+  	borderBottomWidth: .4,
+  	borderColor: '#b7b7b7',
+  //	borderWidth: .3,
+  	//borderBottomWidth : 1,
+   // borderColor: '#b7b7b7',
+    //borderTopWidth: 0,
     opacity: 1,
   }
 
