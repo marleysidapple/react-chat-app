@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ListView } from 'react-native';
 import { Scene } from 'react-native-router-flux';
 import globalcss from './../../assets/css/globalcss';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -8,6 +8,10 @@ class Dashbaord extends Component {
 
 	constructor(props){
 		super(props);
+		 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+	     this.state = {
+	      dataSource: ds.cloneWithRows(['row 1', 'row 2', 'row 4', 'row 4', 'row 5', 'row 6', 'row 7', 'row 8', 'row 9', 'row 10', 'row 11', 'row 12', 'row 13', 'row 14', 'row 15', 'row 16', 'row 17']),
+	    };
 	}
 
 	render(){
@@ -15,8 +19,14 @@ class Dashbaord extends Component {
 
 
 			<View style={styles.container}>
-				<View>
-					<Text>View One</Text>
+				<View style={styles.chatDetailWrapper}>
+					<ListView 
+						style={styles.listViewContainer}
+				        dataSource={this.state.dataSource}
+				        renderRow={
+				        		(rowData) => 
+				        		<Text style={styles.singleCellContainer}>{rowData}</Text>
+				    	}/>
 				</View>
 
 
@@ -41,8 +51,6 @@ class Dashbaord extends Component {
 						<Icon name={'podcast'} size={22} color="#605a5a" />
 						<Text style={styles.tabTextStyle}>More</Text>
 					</View>
-					
-
 				</View>
 			</View>
     
@@ -66,7 +74,7 @@ const styles = StyleSheet.create({
   	//justifyContent: 'space-between',
   	borderTopWidth : .5,
     borderColor    : '#b7b7b7',
-    opacity: 1
+    opacity: 1,     
   },
 
   tabView: {
@@ -78,7 +86,21 @@ const styles = StyleSheet.create({
 
   tabTextStyle: {
   	alignSelf: 'center',
-  	color: '#666464'
+  	color: '#666464',
+  },
+
+  chatDetailWrapper: {
+  	flex: 1
+  },
+
+
+
+  singleCellContainer:{
+  	margin: 5,
+  	padding: 5,
+  	borderBottomWidth : .5,
+    borderColor: '#b7b7b7',
+    opacity: 1,
   }
 
 
