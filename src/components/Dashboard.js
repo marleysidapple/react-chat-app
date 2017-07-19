@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ListView } from 'react-native';
+import { Text, View, StyleSheet, ListView, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { Scene } from 'react-native-router-flux';
 import globalcss from './../../assets/css/globalcss';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -24,34 +25,34 @@ class Dashbaord extends Component {
 				        dataSource={this.state.dataSource}
 				        renderRow={
 				        		(rowData) => 
-				        		<View style={styles.singleCellContainer}>
-				        			<Text>{rowData}</Text>
-				        		</View>
+				        		<TouchableOpacity style={styles.singleCellContainer}>
+				        				<Text>{rowData}</Text>
+				        		</TouchableOpacity>
 				    	}/>
 				</View>
 
 
 
 				<View style={styles.footerStyle}>
-					<View style={styles.tabView}>
-						<Icon style={styles.iconStyle} name={'comments'} size={22} color="#1a457c" />
+					<TouchableOpacity style={styles.tabView}>
+						<Icon style={styles.iconStyle} name={'comments'} size={22} color="#F48024"/>				
 						<Text style={styles.tabTextStyle}>Chats</Text>
-					</View>
+					</TouchableOpacity>
 
-					<View style={styles.tabView}>
+					<TouchableOpacity style={styles.tabView} onPress={() => Actions.friends()}>
 						<Icon name={'users'} size={22} color="#605a5a" />
 						<Text style={styles.tabTextStyle}>Friends</Text>
-					</View>
+					</TouchableOpacity>
 
-					<View style={styles.tabView}>
+					<TouchableOpacity style={styles.tabView}>
 						<Icon name={'drivers-license-o'} size={22} color="#605a5a" />
 						<Text style={styles.tabTextStyle}>Profile</Text>
-					</View>
+					</TouchableOpacity>
 
-					<View style={styles.tabView}>
+					<TouchableOpacity style={styles.tabView}>
 						<Icon name={'podcast'} size={22} color="#605a5a" />
 						<Text style={styles.tabTextStyle}>More</Text>
-					</View>
+					</TouchableOpacity>
 				</View>
 			</View>
     
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
   tabTextStyle: {
   	alignSelf: 'center',
   	color: '#666464',
+  	fontSize: 12
   },
 
   chatDetailWrapper: {
@@ -96,7 +98,7 @@ const styles = StyleSheet.create({
 
   singleCellContainer:{
   	flex: 1,
-  	padding: 25,
+  	padding: 30,
   	borderBottomWidth: .4,
   	borderColor: '#b7b7b7',
     opacity: 1,

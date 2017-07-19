@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, Image, TouchableOpacity, Animated, } from 'react-native';
 import Button from './../common/Button';
 import { Actions } from 'react-native-router-flux';
 
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 	mainWrapper: {
 		height: 100,
 		width: 100,
-		alignSelf: 'center'
+		alignSelf: 'center',
 	},
 	logoItem: {
 		alignSelf: 'center',
