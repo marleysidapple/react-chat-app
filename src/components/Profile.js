@@ -16,18 +16,19 @@ class Profile extends Component {
 		this.props.getUserDetail({token: this.props.token});
 	}
 
+
 	render(){
 		return(
-			<Text>{this.props.fullname}</Text>
+			<Text>{'sad'}</Text>
 		);
 	}
 }
 
 
 function mapStateToProps(state){
+	console.log(state.auth_detail);
 	return {
-		fullname: state.auth_detail.fullname,
-		email: state.auth_detail.email
+	
 	};
 }
 
