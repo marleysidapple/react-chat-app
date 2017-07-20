@@ -23,8 +23,8 @@ class RouterComponent extends Component{
 					<Scene key="landing" component={Landing} hideNavBar navigationBarStyle={globalcss.navStyle} initial/>
 	 				<Scene key="login" component={Login} title={'Please Login'}/>
 	 				<Scene key="register" component={Register} title={'Please Register'}/>
-					<Scene key="dashboard" sceneStyle={globalcss.innerWrapper} component={Dashboard} title={'Chats'}/>		
-			 		<Scene key="friends" component={Friends} title={'Friend List'}/>	
+					<Scene key="dashboard" sceneStyle={globalcss.innerWrapper} component={Dashboard} title={'Chats'} />		
+					<Scene key="friends" component={Friends} title={'Friend List'}/>	
 			 	</Scene>	
 			</Router>
 		);

@@ -5,6 +5,7 @@ import { Scene } from 'react-native-router-flux';
 import globalcss from './../../assets/css/globalcss';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Drawer from 'react-native-drawer'
+import Cellcontent from './Cellcontent';
 
 class Dashbaord extends Component {
 
@@ -25,9 +26,7 @@ class Dashbaord extends Component {
 				        dataSource={this.state.dataSource}
 				        renderRow={
 				        		(rowData) => 
-				        		<TouchableOpacity style={styles.singleCellContainer}>
-				        				<Text>{rowData}</Text>
-				        		</TouchableOpacity>
+				        		<Cellcontent items={rowData} />
 				    	}/>
 				</View>
 
@@ -95,14 +94,13 @@ const styles = StyleSheet.create({
   },
 
 
+   tabBarStyle: {
+            borderTopWidth : .5,
+            borderColor    : '#b7b7b7',
+            backgroundColor: 'white',
+            opacity        : 1
+        }
 
-  singleCellContainer:{
-  	flex: 1,
-  	padding: 30,
-  	borderBottomWidth: .4,
-  	borderColor: '#b7b7b7',
-    opacity: 1,
-  }
 
 
 });

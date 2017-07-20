@@ -21,7 +21,7 @@ class Login extends Component {
           nextProps.err
         );
       } else if(nextProps.success) {
-        Actions.dashboard({type: 'reset'});
+         Actions.dashboard({type: 'reset'});
       }
    }
 
