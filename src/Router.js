@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import Friends from './components/Friends';
 import Landing from './components/Landing';
 import Login from './components/Login';
+import Profile from './components/Profile';
 import Register from './components/Register';
 
 
@@ -25,6 +26,7 @@ class RouterComponent extends Component{
 	 				<Scene key="register" component={Register} title={'Please Register'}/>
 					<Scene key="dashboard" sceneStyle={globalcss.innerWrapper} component={Dashboard} title={'Chats'} />		
 					<Scene key="friends" component={Friends} title={'Friend List'}/>	
+					<Scene key="profile" component={Profile} title={'Profile'}/>	
 			 	</Scene>	
 			</Router>
 		);

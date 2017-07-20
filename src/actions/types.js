@@ -14,3 +14,7 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
 export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED';
 
+//user details
+export const USER_DETAIL_SUCCESS = 'USER_DETAIL_SUCCESS';
+export const USER_DETAIL_FAILED = 'USER_DETAIL_FAILED';
+

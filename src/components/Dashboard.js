@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, ListView, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Scene } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 import globalcss from './../../assets/css/globalcss';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Drawer from 'react-native-drawer'
@@ -43,7 +44,7 @@ class Dashbaord extends Component {
 						<Text style={styles.tabTextStyle}>Friends</Text>
 					</TouchableOpacity>
 
-					<TouchableOpacity style={styles.tabView}>
+					<TouchableOpacity style={styles.tabView} onPress={() => Actions.profile({token: this.props.token})}>
 						<Icon name={'drivers-license-o'} size={22} color="#605a5a" />
 						<Text style={styles.tabTextStyle}>Profile</Text>
 					</TouchableOpacity>
@@ -105,4 +106,11 @@ const styles = StyleSheet.create({
 
 });
 
-export default Dashbaord; 
+
+function mapStateToProps(state){
+	return{
+		token: state.auth_login.token
+	};
+}
+
+export default connect(mapStateToProps, {})(Dashbaord); 
