@@ -9,7 +9,8 @@ import {
 import { API_BASE_URL } from 'react-native-dotenv';
 import { Alert } from 'react-native';
 import axios from 'axios';
-import { Actions } from 'react-native-router-flux';
+import { NavigationActions } from 'react-navigation'
+
 
 
 export function handleLoginForm({prop, value}){
@@ -30,7 +31,6 @@ export function validateLoginCredential(userData){
 					type: USER_LOGIN_SUCCESS,
 					payload: user.data
 				});
-		Actions.dashboard({type: 'reset'});
 		}).catch(err => {
 			dispatch({
 				type: USER_LOGIN_FAILED,

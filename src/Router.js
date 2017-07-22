@@ -1,41 +1,81 @@
 import React, { Component } from 'react';
-import { Scene, Router, Actions } from 'react-native-router-flux';
-
+import { StackNavigator, TabNavigator }  from 'react-navigation';
 import Dashboard from './components/Dashboard';
 import Friends from './components/Friends';
 import Landing from './components/Landing';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import Register from './components/Register';
+import { Icon } from 'react-native-elements';
 
 
 import globalcss from './../assets/css/globalcss';
 
 
-class RouterComponent extends Component{
-	constructor(props){
-		super(props);
-	}
 
-	render(){
-		return(
-			<Router sceneStyle={globalcss.sceneWrapper}>
-				<Scene key="root">
-					<Scene key="landing" component={Landing} hideNavBar navigationBarStyle={globalcss.navStyle} initial/>
-	 				<Scene key="login" component={Login} title={'Please Login'}/>
-	 				<Scene key="register" component={Register} title={'Please Register'}/>
-					<Scene key="dashboard" sceneStyle={globalcss.innerWrapper} component={Dashboard} title={'Chats'} />		
-					<Scene key="friends" component={Friends} title={'Friend List'}/>	
-					<Scene key="profile" component={Profile} title={'Profile'}/>	
-			 	</Scene>	
-			</Router>
-		);
-	}
+const DashboardTabsCollection = TabNavigator({
+  Chats: {
+    screen: Dashboard,
+    navigationOptions: {
+    	headerLeft: null,
+    	title: 'Chats',
+    	tabBarIcon: ({ tintColor }) => <Icon name="textsms" size={25} color={tintColor} />,
+    }
+  },
+  Profile: {
+    screen: Profile,
+    navigationOptions: {
+    	title: 'Profile',
+    	tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={25} color={tintColor} />,
+    	headerLeft: null
+    }
+  },
 
-}
+  Friends: {
+    screen: Profile,
+    navigationOptions: {
+    	title: 'Friends',
+    	tabBarIcon: ({ tintColor }) => <Icon name="contacts" size={25} color={tintColor} />,
+    	headerLeft: null
+    }
+  },
 
-// <Scene key="protected">
-	 			// 	<Scene key="dashboard" component={Dashboard} title={'Some description'} />	
-	 			// </Scene>
+  Settings: {
+    screen: Profile,
+    navigationOptions: {
+    	title: 'More',
+    	tabBarIcon: ({ tintColor }) => <Icon name="settings" size={25} color={tintColor} />,
+    	headerLeft: null
+    }
+  },
+});
 
-export default RouterComponent;
+
+
+
+
+const Router = StackNavigator({
+  Landing: { 
+  	screen: Landing,
+  	navigationOptions: {
+  		header: null,
+  	} 
+  },
+  Login: {
+  	screen: Login,
+  	navigationOptions: {
+  		title: 'Login',
+  		headerLeft: null
+  	}
+  },
+  Register: {
+  	screen: Register
+  },
+  
+  Dashboard: {screen: DashboardTabsCollection},
+},
+{
+  initialRouteName: 'Dashboard'
+});
+
+export default Router;

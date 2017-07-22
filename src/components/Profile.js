@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { Actions } from 'react-native-router-flux';
 import { getUserDetail } from './../actions/Login';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -31,6 +30,5 @@ function mapStateToProps(state){
 	
 	};
 }
-
 
 export default connect(mapStateToProps, {getUserDetail})(Profile);

@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import { handleLoginForm, validateLoginCredential } from './../actions/Login';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import Input from './../common/Input';
 import Button from './../common/Button';
@@ -21,7 +20,7 @@ class Login extends Component {
           nextProps.err
         );
       } else if(nextProps.success) {
-         Actions.dashboard({type: 'reset'});
+        this.props.navigation.navigate('Dashboard');
       }
    }
 
@@ -72,8 +71,8 @@ class Login extends Component {
                         
                           <View style={styles.linkToRegister}>
                             <Text style={styles.standardText}>{'Dont have an account? '}</Text>
-                            <TouchableOpacity>
-                              <Text style={styles.standardText} onPress={() => Actions.register()}>{'Click here to register'}</Text>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
+                              <Text style={styles.standardText}>{'Click here to register'}</Text>
                             </TouchableOpacity>
                           </View>
            </View>

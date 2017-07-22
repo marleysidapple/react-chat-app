@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Button from './../common/Button';
-import { Actions } from 'react-native-router-flux';
 
 class Landing extends Component {
 
@@ -18,7 +17,7 @@ class Landing extends Component {
 							<Image style={styles.mainWrapper} source={require('./../../assets/img/logo.png')} />
 							<Text style={styles.logoItem}>EULEO</Text>
 
-							<TouchableOpacity style={styles.buttonWrapper} onPress={() => Actions.login({'type': 'reset'})}>
+							<TouchableOpacity style={styles.buttonWrapper} onPress={() => this.props.navigation.navigate('Login')}>
 				                <Text style={styles.buttonText}>{'Get Started'}</Text>
 				            </TouchableOpacity>
 						</View>

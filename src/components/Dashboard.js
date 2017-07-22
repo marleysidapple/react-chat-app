@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ListView, TouchableOpacity } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import { Scene } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import globalcss from './../../assets/css/globalcss';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Drawer from 'react-native-drawer'
 import Cellcontent from './Cellcontent';
 
 class Dashbaord extends Component {
@@ -31,29 +28,6 @@ class Dashbaord extends Component {
 				    	}/>
 				</View>
 
-
-
-				<View style={styles.footerStyle}>
-					<TouchableOpacity style={styles.tabView}>
-						<Icon style={styles.iconStyle} name={'comments'} size={22} color="#F48024"/>				
-						<Text style={styles.tabTextStyle}>Chats</Text>
-					</TouchableOpacity>
-
-					<TouchableOpacity style={styles.tabView} onPress={() => Actions.friends()}>
-						<Icon name={'users'} size={22} color="#605a5a" />
-						<Text style={styles.tabTextStyle}>Friends</Text>
-					</TouchableOpacity>
-
-					<TouchableOpacity style={styles.tabView} onPress={() => Actions.profile({token: this.props.token})}>
-						<Icon name={'drivers-license-o'} size={22} color="#605a5a" />
-						<Text style={styles.tabTextStyle}>Profile</Text>
-					</TouchableOpacity>
-
-					<TouchableOpacity style={styles.tabView}>
-						<Icon name={'podcast'} size={22} color="#605a5a" />
-						<Text style={styles.tabTextStyle}>More</Text>
-					</TouchableOpacity>
-				</View>
 			</View>
     
 		);
@@ -68,21 +42,9 @@ const styles = StyleSheet.create({
 	    flex: 1,
   },
 
-  footerStyle: {
-  	flexDirection: 'row',
-  	height: 55,
-  	backgroundColor: '#d1cfcf',
-  	borderTopWidth : .5,
-    borderColor    : '#b7b7b7',
-    opacity: 1,     
-  },
 
-  tabView: {
-  	//justifyContent: 'space-between',  
-  	alignItems: 'center',
-  	padding: 8,
-  	flex: 1,
-  },
+
+
 
   tabTextStyle: {
   	alignSelf: 'center',
@@ -93,16 +55,6 @@ const styles = StyleSheet.create({
   chatDetailWrapper: {
   	flex: 1
   },
-
-
-   tabBarStyle: {
-            borderTopWidth : .5,
-            borderColor    : '#b7b7b7',
-            backgroundColor: 'white',
-            opacity        : 1
-        }
-
-
 
 });
 
