@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StackNavigator, TabNavigator }  from 'react-navigation';
+import { addNavigationHelpers, StackNavigator, TabNavigator }  from 'react-navigation';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Dashboard from './components/Dashboard';
 import Friends from './components/Friends';
 import Landing from './components/Landing';
@@ -54,7 +56,7 @@ const DashboardTabsCollection = TabNavigator({
 
 
 
-const Router = StackNavigator({
+export const Router = StackNavigator({
   Landing: { 
   	screen: Landing,
   	navigationOptions: {
@@ -75,7 +77,23 @@ const Router = StackNavigator({
   Dashboard: {screen: DashboardTabsCollection},
 },
 {
-  initialRouteName: 'Dashboard'
+  initialRouteName: 'Landing'
 });
 
-export default Router;
+
+const AppWithNavigationState = ({ dispatch, nav }) => (
+  <Router navigation={addNavigationHelpers({ dispatch, state: nav })} />
+);
+
+AppWithNavigationState.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  nav: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => ({
+  nav: state.nav,
+});
+
+
+
+export default connect(mapStateToProps)(AppWithNavigationState);

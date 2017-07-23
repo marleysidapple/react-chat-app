@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { addNavigationHelpers } from 'react-navigation';
+import { bindActionCreators } from 'redux';
 import Login from './src/components/Login';
-import Router from './src/Router';
+import AppWithNavigationState from './src/Router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -19,11 +21,13 @@ class App extends Component {
   render() {
     return(
     	<Provider store={store(reducers)}>
-      		<Router />
-      	</Provider>
+      		<AppWithNavigationState />
+      </Provider>
     );
   }
 }
+
+
 
 export default App;
 

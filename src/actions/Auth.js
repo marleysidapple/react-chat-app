@@ -9,6 +9,7 @@ import {
 	USER_CREATE_FAILED,
 } from './types';
 import { API_BASE_URL } from 'react-native-dotenv';
+import { NavigationActions } from 'react-navigation';
 import { Alert } from 'react-native';
 import axios from 'axios';
 
@@ -30,7 +31,9 @@ export function createUser(userdata){
 					type: USER_CREATE_SUCCESS,
 					payload: user
 				});
-		Actions.login({type: 'reset'});
+		dispatch(NavigationActions.navigate({ routeName: 'Login' }));
+		NavigationActions.navigate({routeName: 'Login'});
+		//Actions.login({type: 'reset'});
 		}).catch(err => {
 			//console.log(error.response);
 			dispatch({
