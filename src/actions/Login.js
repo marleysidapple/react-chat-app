@@ -1,4 +1,4 @@
-import {	
+import {
 	HANDLE_LOGIN_FORM,
 	LOGIN_USER,
 	USER_LOGIN_SUCCESS,
@@ -12,14 +12,12 @@ import axios from 'axios';
 import { NavigationActions } from 'react-navigation'
 
 
-
 export function handleLoginForm({prop, value}){
 	return{
 		type: HANDLE_LOGIN_FORM,
 		payload: {prop, value}
 	};
 }
-
 
 export function validateLoginCredential(userData){
 	return(dispatch) => {
@@ -31,7 +29,9 @@ export function validateLoginCredential(userData){
 					type: USER_LOGIN_SUCCESS,
 					payload: user.data
 				});
-		}).catch(err => {
+				//getUserDetail(user.data.success);
+		})
+		.catch(err => {
 			dispatch({
 				type: USER_LOGIN_FAILED,
 				payload: err.response
@@ -40,19 +40,15 @@ export function validateLoginCredential(userData){
 	}
 }
 
-
-export function getUserDetail(token){
+function getUserDetail(token){
 	return (dispatch) => {
-		 var headers = {
-         	'Content-Type': 'application/json',
-        }
-
-		axios.post(API_BASE_URL + '/auth/user/detail', token, headers).then(detail => {
+	 axios.post(API_BASE_URL + '/auth/user/detail', {token}).then(detail => {
 			dispatch({
 				type: USER_DETAIL_SUCCESS,
 				payload: detail.data
 			});
-		}).catch(err => {
+		})
+		.catch(err => {
 			dispatch({
 				type: USER_DETAIL_FAILED,
 				payload: err.response

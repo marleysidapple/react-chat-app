@@ -4,17 +4,14 @@ import { connect } from 'react-redux';
 import { getUserDetail } from './../actions/Login';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-
-
 class Profile extends Component {
 	constructor(props){
 		super(props);
 	}
 
 	componentWillMount(){
-		this.props.getUserDetail({token: this.props.token});
+		//this.props.getUserDetail({token: this.props.token});
 	}
-
 
 	render(){
 		return(
@@ -23,11 +20,8 @@ class Profile extends Component {
 	}
 }
 
-
 function mapStateToProps(state){
-	console.log(state.auth_detail);
 	return {
-	
 	};
 }
 

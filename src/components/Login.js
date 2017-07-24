@@ -43,7 +43,7 @@ class Login extends Component {
   showEitherButtonOrSpinner(){
     if (this.props.loading){
       return <ActivityIndicator size={'small'}/>;
-    } 
+    }
     return <Button buttonTitle={'Login'} onPressedAction={this.onLoginPress.bind(this)}/>;
   }
 
@@ -52,23 +52,23 @@ class Login extends Component {
 		return(
 		       <View style={globalcss.container}>
                   <Text style={styles.mainHeader}>Euleo</Text>
-                  
-                      <Input 
-                        iconName={'envelope-o'} 
+
+                      <Input
+                        iconName={'envelope-o'}
                         placeholder={'Enter your email'}
                         value={this.props.email}
                         onInputChange={(value) => this.props.handleLoginForm({prop:'email', value: value})} />
 
-                      <Input iconName={'key'} 
-                             placeholder={'Enter your password'} 
+                      <Input iconName={'key'}
+                             placeholder={'Enter your password'}
                              value={this.props.password}
                              onInputChange={(value) => this.props.handleLoginForm({prop: 'password', value: value})}
                              secureTextEntry={true} />
 
 
                       {this.showEitherButtonOrSpinner()}
-                        
-                        
+
+
                           <View style={styles.linkToRegister}>
                             <Text style={styles.standardText}>{'Dont have an account? '}</Text>
                             <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   linkToRegister: {
     //flex: 1,
     flexDirection: 'row',
-   
+
   },
 
   standardText: {
@@ -130,7 +130,9 @@ const styles = StyleSheet.create({
 
 });
 
-function mapStateToProps(state){
+function mapStateToProps(state, props){
+  console.log(state.auth_login);
+  console.log(props);
   return {
       email: state.auth_login.email,
       password: state.auth_login.password,

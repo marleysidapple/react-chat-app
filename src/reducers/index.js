@@ -3,13 +3,15 @@ import auth_reducer from './auth_reducer';
 import auth_login_reducer from './auth_login_reducer';
 import auth_detail_reducer from './auth_detail_reducer';
 import { NavigationActions } from 'react-navigation';
-import { Router } from './../../src/Router'; 
+import { Router } from './../../src/Router';
 
+const initialState = Router.router.getStateForAction(Router.router.getActionForPathAndParams('Login'));
 
-const navReducer = (state, action) => {
-  const newState = Router.router.getStateForAction(action, state);
-  return newState || state;
+const navReducer = (state = initialState, action) => {
+  const nextState = Router.router.getStateForAction(action, state);
+  return nextState || state;
 };
+
 
 export default combineReducers({
 	nav: navReducer,

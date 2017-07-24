@@ -10,10 +10,7 @@ import Profile from './components/Profile';
 import Register from './components/Register';
 import { Icon } from 'react-native-elements';
 
-
 import globalcss from './../assets/css/globalcss';
-
-
 
 const DashboardTabsCollection = TabNavigator({
   Chats: {
@@ -21,6 +18,7 @@ const DashboardTabsCollection = TabNavigator({
     navigationOptions: {
     	headerLeft: null,
     	title: 'Chats',
+
     	tabBarIcon: ({ tintColor }) => <Icon name="textsms" size={25} color={tintColor} />,
     }
   },
@@ -52,16 +50,12 @@ const DashboardTabsCollection = TabNavigator({
   },
 });
 
-
-
-
-
 export const Router = StackNavigator({
-  Landing: { 
+  Landing: {
   	screen: Landing,
   	navigationOptions: {
   		header: null,
-  	} 
+  	}
   },
   Login: {
   	screen: Login,
@@ -73,16 +67,17 @@ export const Router = StackNavigator({
   Register: {
   	screen: Register
   },
-  
   Dashboard: {screen: DashboardTabsCollection},
 },
 {
-  initialRouteName: 'Landing'
+  initialRouteName: 'Landing',
 });
 
-
 const AppWithNavigationState = ({ dispatch, nav }) => (
-  <Router navigation={addNavigationHelpers({ dispatch, state: nav })} />
+    <Router navigation={addNavigationHelpers({
+              dispatch,
+              state: nav
+            })} />
 );
 
 AppWithNavigationState.propTypes = {
