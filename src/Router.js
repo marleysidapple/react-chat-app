@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { addNavigationHelpers, StackNavigator, TabNavigator }  from 'react-navigation';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Dashboard from './components/Dashboard';
 import Friends from './components/Friends';
 import Landing from './components/Landing';
@@ -61,7 +62,7 @@ export const Router = StackNavigator({
   	screen: Login,
   	navigationOptions: {
   		title: 'Login',
-  		headerLeft: null
+  		headerLeft: null,
   	}
   },
   Register: {
@@ -84,6 +85,8 @@ AppWithNavigationState.propTypes = {
   dispatch: PropTypes.func.isRequired,
   nav: PropTypes.object.isRequired,
 };
+
+
 
 const mapStateToProps = state => ({
   nav: state.nav,
