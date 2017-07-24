@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state, props){
   console.log(state.auth_login);
-  console.log(props);
+  //console.log(props);
   return {
       email: state.auth_login.email,
       password: state.auth_login.password,
