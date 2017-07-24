@@ -32,8 +32,7 @@ export function createUser(userdata){
 					payload: user
 				});
 		dispatch(NavigationActions.navigate({ routeName: 'Login' }));
-		NavigationActions.navigate({routeName: 'Login'});
-		//Actions.login({type: 'reset'});
+
 		}).catch(err => {
 			//console.log(error.response);
 			dispatch({
