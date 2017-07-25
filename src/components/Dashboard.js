@@ -8,6 +8,11 @@ import Cellcontent from './Cellcontent';
 
 class Dashbaord extends Component {
 
+
+	componentWillMount(){
+		//this.props.getUserDetail({token: this.props.navigation.state.params.token});
+	}
+
 	constructor(props){
 		super(props);
 		 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -19,6 +24,7 @@ class Dashbaord extends Component {
 	render(){
 		return(
 			<View style={styles.container}>
+				<Text>{'asdasd'}</Text>
 				<View style={styles.chatDetailWrapper}>
 					<ListView
 						style={styles.listViewContainer}
@@ -58,9 +64,9 @@ const styles = StyleSheet.create({
 
 
 function mapStateToProps(state){
-	console.log(state);
 	return{
-		token: state.auth_login.token
+		token: state.auth_login.token,
+		nam: state.auth_detail.fullname
 	};
 }
 

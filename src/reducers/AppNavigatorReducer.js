@@ -1,5 +1,11 @@
 
 import { Router } from '../Router';
+import { NavigationActions } from 'react-navigation';
 
-export default (state, action) =>
-  Router.router.getStateForAction(action, state) || state;
+
+const initialState = Router.router.getStateForAction(NavigationActions.init());
+
+export default (state = initialState, action) => {
+    const newState = Router.router.getStateForAction(action, state);
+    return newState || state;
+  }

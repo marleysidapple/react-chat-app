@@ -31,6 +31,7 @@ export function createUser(userdata){
 					type: USER_CREATE_SUCCESS,
 					payload: user
 				});
+				
 		dispatch(NavigationActions.navigate({ routeName: 'Login' }));
 
 		}).catch(err => {

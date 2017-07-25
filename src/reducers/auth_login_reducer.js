@@ -12,23 +12,23 @@ const INITIAL_STATE = {
 	err: null,
 	loading: false,
 	success: false,
-	token: null
+	detail: null
 }
 
 
 export default function(state=INITIAL_STATE, action){
 	switch(action.type){
 		case HANDLE_LOGIN_FORM:
-			return {...state, [action.payload.prop]: action.payload.value, loading: false, err: null, token: null, success: false};
+			return {...state, [action.payload.prop]: action.payload.value, loading: false, err: null, success: false, detail:null};
 
 		case LOGIN_USER:
-			return { ...state, loading: true, err: null, success: false, token: null};
+			return { ...state, loading: true, err: null, success: false, detail:null};
 
 		case USER_LOGIN_SUCCESS:
-			return { ...state, loading: false, err: null, success: true, token: action.payload.success};
+			return { ...state, loading: false, err: null, success: true, detail:action.payload.data};
 
 		case USER_LOGIN_FAILED:
-			return { ...state, loading: false, password: '', err: action.payload.data.error, success: false, token: null};
+			return { ...state, loading: false, password: '', err: action.payload.data.error, success: false, detail: null};
 		default:
 			return INITIAL_STATE;
 	}

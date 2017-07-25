@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
-import { handleLoginForm, validateLoginCredential } from './../actions/Login';
+import { handleLoginForm, validateLoginCredential, getUserDetail } from './../actions/Login';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
 import Input from './../common/Input';
@@ -19,10 +19,11 @@ class Login extends Component {
           'Error',
           nextProps.err
         );
-      }
-      // } else if(nextProps.success) {
-      //   this.props.navigation.navigate('Dashboard');
-      // }
+      }// else if(nextProps.success) {
+          //  console.log(nextProps);
+          //const userDetail = this.props.getUserDetail({token: nextProps.token});
+          //this.props.navigation.navigate('Dashboard');
+    //  }
    }
 
   onLoginPress(){
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state, props){
-  console.log(state.auth_login);
+  console.log(state);
   //console.log(props);
   return {
       email: state.auth_login.email,
@@ -145,4 +146,4 @@ function mapStateToProps(state, props){
 }
 
 
-export default connect(mapStateToProps, { handleLoginForm, validateLoginCredential })(Login);
+export default connect(mapStateToProps, { handleLoginForm, validateLoginCredential, getUserDetail })(Login);

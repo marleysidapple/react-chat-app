@@ -10,6 +10,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import { Icon } from 'react-native-elements';
+//import * as Actions  from './actions/index';
 
 import globalcss from './../assets/css/globalcss';
 
@@ -74,44 +75,24 @@ export const Router = StackNavigator({
   initialRouteName: 'Landing',
 });
 
-// const AppWithNavigationState = ({ dispatch, nav }) => (
-//     <Router navigation={addNavigationHelpers({
-//               dispatch,
-//               state: nav
-//             })} />
-// );
 
-class AppWithNavigationState extends Component {
-  render() {
-    return (
-      <Router
-        navigation={addNavigationHelpers({
-          dispatch: this.props.dispatch,
-          state: this.props.nav,
-        })}
+
+
+const AppWithNavigationState = ({dispatch, nav}) => (
+    <Router
+      navigation={addNavigationHelpers({
+        dispatch,
+        state: nav
+      })}
       />
-    );
+);
+
+
+
+const mapStateToProps = (state) => {
+  return{
+    nav: state.nav
   }
 }
 
-
-
-
-// AppWithNavigationState.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-//   nav: PropTypes.object.isRequired,
-// };
-
-
-
-// const mapStateToProps = state => ({
-//   nav: state.nav,
-// });
-//
-//
-//
-const mapStateToProps = ({ nav }) => ({ nav });
 export default connect(mapStateToProps)(AppWithNavigationState);
-
-//const connectAppWithNavigationState = connect(mapStateToProps)(AppWithNavigationState);
-//export { connectAppWithNavigationState as AppWithNavigationState, Router };

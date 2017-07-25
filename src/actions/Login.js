@@ -25,11 +25,13 @@ export function validateLoginCredential(userData){
 		dispatch({type: LOGIN_USER});
 
 		axios.post(API_BASE_URL + '/auth/login', userData).then(user => {
-				dispatch({
-					type: USER_LOGIN_SUCCESS,
-					payload: user.data
-				});
-				//getUserDetail(user.data.success);
+			axios.post(API_BASE_URL + '/auth/user/detail', {token: user.data.success}).then(detail => {
+	 					dispatch({
+	 						type: USER_LOGIN_SUCCESS,
+	 						payload: detail
+	 					});
+	 				})
+				dispatch(NavigationActions.navigate({ routeName: 'Dashboard' }));
 		})
 		.catch(err => {
 			dispatch({
@@ -40,15 +42,17 @@ export function validateLoginCredential(userData){
 	}
 }
 
-function getUserDetail(token){
+export function getUserDetail(token){
+	//console.log(token);
 	return (dispatch) => {
-	 axios.post(API_BASE_URL + '/auth/user/detail', {token}).then(detail => {
+	 axios.post(API_BASE_URL + '/auth/user/detail', token).then(detail => {
 			dispatch({
 				type: USER_DETAIL_SUCCESS,
 				payload: detail.data
 			});
 		})
 		.catch(err => {
+			console.log(err);
 			dispatch({
 				type: USER_DETAIL_FAILED,
 				payload: err.response
