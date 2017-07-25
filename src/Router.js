@@ -74,24 +74,44 @@ export const Router = StackNavigator({
   initialRouteName: 'Landing',
 });
 
-const AppWithNavigationState = ({ dispatch, nav }) => (
-    <Router navigation={addNavigationHelpers({
-              dispatch,
-              state: nav
-            })} />
-);
+// const AppWithNavigationState = ({ dispatch, nav }) => (
+//     <Router navigation={addNavigationHelpers({
+//               dispatch,
+//               state: nav
+//             })} />
+// );
 
-AppWithNavigationState.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  nav: PropTypes.object.isRequired,
-};
+class AppWithNavigationState extends Component {
+  render() {
+    return (
+      <Router
+        navigation={addNavigationHelpers({
+          dispatch: this.props.dispatch,
+          state: this.props.nav,
+        })}
+      />
+    );
+  }
+}
 
 
 
-const mapStateToProps = state => ({
-  nav: state.nav,
-});
+
+// AppWithNavigationState.propTypes = {
+//   dispatch: PropTypes.func.isRequired,
+//   nav: PropTypes.object.isRequired,
+// };
 
 
 
+// const mapStateToProps = state => ({
+//   nav: state.nav,
+// });
+//
+//
+//
+const mapStateToProps = ({ nav }) => ({ nav });
 export default connect(mapStateToProps)(AppWithNavigationState);
+
+//const connectAppWithNavigationState = connect(mapStateToProps)(AppWithNavigationState);
+//export { connectAppWithNavigationState as AppWithNavigationState, Router };

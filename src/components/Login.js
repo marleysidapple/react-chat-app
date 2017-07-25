@@ -19,9 +19,10 @@ class Login extends Component {
           'Error',
           nextProps.err
         );
-      } else if(nextProps.success) {
-        this.props.navigation.navigate('Dashboard');
       }
+      // } else if(nextProps.success) {
+      //   this.props.navigation.navigate('Dashboard');
+      // }
    }
 
   onLoginPress(){
