@@ -25,7 +25,7 @@ export default function(state=INITIAL_STATE, action){
 			return { ...state, loading: true, err: null, success: false, detail:null};
 
 		case USER_LOGIN_SUCCESS:
-			return { ...state, loading: false, err: null, success: true, detail:action.payload.data};
+			return { ...state, loading: false, err: null, success: true, password: '', detail:action.payload.data};
 
 		case USER_LOGIN_FAILED:
 			return { ...state, loading: false, password: '', err: action.payload.data.error, success: false, detail: null};
