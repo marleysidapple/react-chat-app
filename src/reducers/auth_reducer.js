@@ -34,6 +34,6 @@ export default function(state=INITIAL_STATE, action){
 		case USER_CREATE_FAILED:
 			return { ...state, loading: false, err: action.payload.data.message, success: false };
 		default:
-			return INITIAL_STATE;
+			return state;
 	}
 }

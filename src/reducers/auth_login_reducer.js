@@ -30,6 +30,6 @@ export default function(state=INITIAL_STATE, action){
 		case USER_LOGIN_FAILED:
 			return { ...state, loading: false, password: '', err: action.payload.data.error, success: false, detail: null};
 		default:
-			return INITIAL_STATE;
+			return state;
 	}
 }

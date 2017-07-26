@@ -15,8 +15,8 @@ import AppNavigatorReducer from './AppNavigatorReducer';
 
 
 export default combineReducers({
-	nav: AppNavigatorReducer,
 	auth_register: auth_reducer,
 	auth_login: auth_login_reducer,
-	auth_detail: auth_detail_reducer
+	auth_detail: auth_detail_reducer,
+	nav: AppNavigatorReducer,
 });

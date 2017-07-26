@@ -20,6 +20,6 @@ export default function(state=INITIAL_STATE, action){
 			return { ...state, detail: null, error: action.payload.data};
 
 		default:
-			return INITIAL_STATE;
+			return state;
 	}
 }
