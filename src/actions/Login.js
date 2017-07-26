@@ -12,6 +12,7 @@ import axios from 'axios';
 import { NavigationActions } from 'react-navigation'
 
 
+
 export function handleLoginForm({prop, value}){
 	return{
 		type: HANDLE_LOGIN_FORM,

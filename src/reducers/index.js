@@ -6,13 +6,6 @@ import { NavigationActions } from 'react-navigation';
 import { Router } from './../../src/Router';
 import AppNavigatorReducer from './AppNavigatorReducer';
 
-// const initialState = Router.router.getStateForAction(Router.router.getActionForPathAndParams('Login'));
-//
-// const navReducer = (state = initialState, action) => {
-//   const nextState = Router.router.getStateForAction(action, state);
-//   return nextState || state;
-// };
-
 
 export default combineReducers({
 	auth_register: auth_reducer,

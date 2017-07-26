@@ -7,6 +7,7 @@ import Input from './../common/Input';
 import Button from './../common/Button';
 import globalcss from './../../assets/css/globalcss';
 
+
 class Login extends Component {
 
     constructor(props){
@@ -19,11 +20,7 @@ class Login extends Component {
           'Error',
           nextProps.err
         );
-      }// else if(nextProps.success) {
-          //  console.log(nextProps);
-          //const userDetail = this.props.getUserDetail({token: nextProps.token});
-          //this.props.navigation.navigate('Dashboard');
-    //  }
+      }
    }
 
   onLoginPress(){
