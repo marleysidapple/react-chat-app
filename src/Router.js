@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { addNavigationHelpers, StackNavigator, TabNavigator }  from 'react-navigation';
+import { Text, View, Button } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,7 +11,6 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import { Icon } from 'react-native-elements';
-//import * as Actions  from './actions/index';
 
 import globalcss from './../assets/css/globalcss';
 
@@ -20,7 +20,6 @@ const DashboardTabsCollection = TabNavigator({
     navigationOptions: {
     	headerLeft: null,
     	title: 'Chats',
-
     	tabBarIcon: ({ tintColor }) => <Icon name="textsms" size={25} color={tintColor} />,
     }
   },
@@ -34,11 +33,12 @@ const DashboardTabsCollection = TabNavigator({
   },
 
   Friends: {
-    screen: Profile,
+    screen: Friends,
     navigationOptions: {
     	title: 'Friends',
     	tabBarIcon: ({ tintColor }) => <Icon name="contacts" size={25} color={tintColor} />,
-    	headerLeft: null
+    	headerLeft: null,
+      headerRight: <Button title="Add"></Button>,
     }
   },
 
