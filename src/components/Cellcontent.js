@@ -14,7 +14,7 @@ class Cellcontent extends Component {
 				<Image style={styles.userThumb} source={require('./../../assets/img/users/five.png')} />
 				<View style={styles.previewWrapper}>
 					<Text numberOfLines={1} style={styles.chatPreview}>{'Hey!! There is something over there. See today is really beautiful day and I am really liking it a lot. Wanna come over? Hey!! There is something over there. See today is really beautiful day and I am really liking it a lot. Wanna come over? Hey!! There is something over there. See today is really beautiful day and I am really liking it a lot. Wanna come over?'}</Text>
-					<Text style={styles.dateUpdated}>17/06/2017</Text>
+					<Text style={styles.dateUpdated}>17/06/2018</Text>
 				</View>
 			</TouchableOpacity>
 		);
